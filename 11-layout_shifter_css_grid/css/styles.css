@@ -1,0 +1,124 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 4rem;
+}
+
+h2 {
+    font-size: 3.2rem;
+}
+
+p {
+    font-size: 2rem;
+}
+
+.contenedor {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+}
+
+.entrada-blog a {
+    display: inline-block;
+    background-color: #2196F3;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+
+/** CODIGO AQUI **/
+/* LAYAOUT SHIFTER - CORRESPONDE AL CAMBIO TOTAL DEL DISEÑO O ORDEN ORIGINAL */
+/* CONSTITUCION INICIAL */
+/* @media (min-width: 768px) {
+    .cont-sht {
+        display: grid;
+        grid-template-areas: "superior"
+                            "inferior";
+    }
+
+    .aside {
+        grid-area: inferior;
+    }
+    .main-cont {
+        grid-area: superior;
+    }
+
+}
+@media (min-width: 992px) {
+    .cont-sht {
+        grid-template-areas: "main aside";
+    }
+    .aside {
+        grid-area: aside;
+    }
+    .main-cont {
+        grid-area: main;
+    }
+    
+} */
+
+/* CONSTITUCION COMPLEJIZADA */
+/* es lo mismo pero anidando elementos dentro de elementos,
+para mejorar la capacidad de transformacion */
+
+@media (min-width: 768px) {
+    .cont-sht {
+        display: grid;
+        grid-template-areas: "superior"
+                            "inferior";
+        column-gap: 4rem;
+    }
+
+    .aside {
+        grid-area: inferior;
+    }
+
+    /* este MAIN tiene dentro 2 DIVS, ASIQUE PODEMOS TRATARLO COMO UN PADRE 
+    Y MODIFICARLO INTERIOR MENTE */
+    .main-cont {
+        grid-area: superior;
+        display: grid;
+        grid-template-areas: "ent1 ent2";
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 3rem;
+
+    }
+
+}
+@media (min-width: 992px) {
+    .cont-sht {
+        grid-template-areas: "main aside";
+    }
+    .aside {
+        grid-area: aside;
+    }
+    .main-cont {
+        grid-area: main;
+        grid-template-areas: "ent1"
+                            "ent2";
+        grid-template-columns: unset; /*ELIMINAMOS LA COLUMNAS DEFINIDAS EN EL QUERI ANTERIOR*/
+    }
+    
+}
